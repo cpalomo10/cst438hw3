@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<htm xmlns:th="www.thymeleaf.org">
+<head>
+<title>City</title>
+</head>
+<body>
+	<h2>City</h2>
+	<br/>
+	<table>
+		<tr>
+			<th>ID</th>
+			<td th:text="${cityInfo.id}"></td>
+		</tr>
+		<tr>
+			<th>Name</th>
+			<td th:text="${cityInfo.name}"></td>
+		</tr>
+		<tr>
+			<th>Country Code</th>
+			<td th:text="${cityInfo.countryCode}"></td>
+		</tr>
+		<tr>
+			<th>Country Name</th>
+			<td th:text="${cityInfo.countryName}"></td>
+		</tr>
+		<tr>
+			<th>District</th>
+			<td th:text="${cityInfo.district}"></td>
+		</tr>
+		<tr>
+			<th>Population</th>
+			<td th:text="${cityInfo.population}"></td>
+		</tr>
+		<tr>
+			<th>Local Weather</th>
+			<td th:text="${cityInfo.temp}"></td>
+		</tr>
+		<tr>
+			<th>Local Time</th>
+			<td th:text="${cityInfo.time}"></td>
+		</tr>
+	</table>
+	
+	<form action="#" th:action="@{/cities/reservation(city=${cityInfo.name})}" method="post">
+		Email: <input type="text" name="email"/><br/>
+		<input type="radio" id="luxury" value="luxury" name="level"/>
+		<label for="luxury"> Luxury $1000 </label><br>
+		<input type="radio" id="medium" value="medium" name="level"/>
+		<label for="medium"> Very Good $500</label><br>	
+		<input type="radio" id="budget" value="budget" name="level"/>
+		<label for="budget"> Good $350</label><br>
+		<input type="submit" value="Submit" />
+	</form>
+	
+</body>
+</html>
