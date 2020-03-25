@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import cst438hw2.domain.*;
 
+//CityService class
 @Service
 public class CityService {
 	
@@ -24,6 +25,9 @@ public class CityService {
 	@Autowired
 	private WeatherService weatherService;
 	
+	//Method: getCityInfo()
+	//@Param: cityName (String)
+	//@Return: CityInfo
 	public CityInfo getCityInfo(String cityName) {
 		
 		Date d = new Date();
@@ -46,6 +50,9 @@ public class CityService {
     @Autowired
     private FanoutExchange fanout;
 
+    //Method: requestReservation()
+    //@Param: cityName (String), level (String), email (String)
+    //@Return: void
     public void requestReservation( 
                    String cityName, 
                    String level, 

@@ -8,21 +8,25 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-
+//ConfigReceiver class
 @Configuration
 public class ConfigReceiver {
+	
 	@Bean
 	public FanoutExchange fanout() {
 		return new FanoutExchange("city-reservation");
 	}
+	
 	@Bean
 	public Queue queue1() {
 		return new Queue("city-reservation-q1");
 	}
+	
 	@Bean
 	public Binding binding1(FanoutExchange fanout, Queue queue1) {
 		return BindingBuilder.bind(queue1).to(fanout);
 	}
+	
 	@Bean
 	public ReservationEventHandler receiver() {
 		return new ReservationEventHandler();

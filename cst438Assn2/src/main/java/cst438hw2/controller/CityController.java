@@ -11,12 +11,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import cst438hw2.domain.*;
 import cst438hw2.service.CityService;
 
+//CityController class
 @Controller
 public class CityController {
 	
 	@Autowired
 	private CityService cityService;
 	
+	//Method: getWeather()
+	//@Param: cityName (String), model (Model)
+	//@Return: city_show HTML template and form
 	@GetMapping("/cities/{city}")
 	public String getWeather(@PathVariable("city") String cityName, Model model) {
 
@@ -25,6 +29,9 @@ public class CityController {
 		return "city_show";
 	} 
 	
+	//Method: createReservation()
+	//@Param: cityName (String), level (String), email (String)
+	//@Return: request reservation HTML template
 	@PostMapping("/cities/reservation")
 	public String createReservation(
 			@RequestParam("city") String cityName, 
